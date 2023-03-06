@@ -1,0 +1,292 @@
+<apex:component access="global" layout="none">
+<apex:attribute description="Quote Template Extinguisher Spare" name="Quote" type="fax__Proposed_Work__c"   />
+<apex:attribute name="JobsheetTempId" type="Id" description="Attribute on the component." />
+
+
+<head>
+
+<style type="text/css" media="print">   
+
+table{
+font-family:Arial,Helvetica,sans-serif;
+}
+
+@top-center {
+content :element(header);
+} 
+
+              
+div.header {
+font-family:Arial,Helvetica,sans-serif;
+ padding: 0px;
+ position:running(header);
+}
+
+div.footer{
+font-family:Arial,Helvetica,sans-serif;
+padding: 0px;
+width:100%;
+position: running(footer);
+}
+
+
+body {
+min-height: 100%;
+} 
+
+.value{
+border: 1px solid green;
+border-collapse: collapse;
+}        
+.p
+{
+@if $Quote.Template__c == "Firntec"
+{
+color:border:red;    
+}
+@else
+{
+color:border:solid #2b3770;
+}
+}
+div.footer {
+display: block;
+padding: 5px;
+position: running(footer);
+align:center;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="header" style="margin-top:{!if(Quote.Template__c=="Firntec",'10mm','')};">
+<table border="0" width="100%"  bgcolor="{!if(Quote.Template__c=="Ventro","#ffffff",if(Quote.Template__c=="Firntec","#ffffff","#000000"))}" >
+<tr style="background-color:black;display:{!if(Quote.Template__c=="Ventro Firntec",'','none')};">
+<td>
+<img style="height:80px;margin-left:-3px;width:220px;" src="{!$resource.VentroLogo}"  />                 
+</td>
+<td>
+             <img style="height:90px;margin-left:-3px;width:220px;" src="{!$resource.Firntec_logo}"  />           
+
+</td>
+<td width="42%"  align="right" Style="font-size:11px;color:White;padding-right:5mm;"> 
+        Aquilam House, 7 Darklake View, Estover, Plymouth, PL6 7TL
+        <br/><br/>
+        <abrv style="display:{!if(Quote.Template__c=="Firntec",'','none')};"> info@firntec.com&nbsp;</abrv>
+</td>
+</tr>
+
+<tr style="display:{!if(Quote.Template__c!="Ventro Firntec",'','none')};">
+
+<td colspan="2" width="58%">
+
+<img style="height:90px;padding-left:none;margin-left:-3px;width:840px;display:{!if(Quote.Template__c=="Ventro",'','none')};" src="{!$resource.blueheader}"/>
+     <img style="height:90px;padding-left:none;margin-left:-3px;width:820px;display:{!if(Quote.Template__c=="Firntec",'','none')};" src="{!$resource.Greenheader}"  />           
+     <img style="height:90px;margin-left:-3px;width:820px;display:{!if(Quote.Template__c=="Ventro Firntec",'','none')};" src="{!$resource.newvintrofirntec}"  />           
+
+</td>
+<td width="40%"  align="right" Style="font-size:11px;color:White;padding-right:5mm;"> 
+        Aquilam House, 7 Darklake View, Estover, Plymouth, PL6 7TL
+        <br/><br/>
+        <abrv style="display:{!if(Quote.Template__c=="Firntec",'','none')};"> info@firntec.com&nbsp;</abrv>
+</td>
+
+</tr>
+</table>
+
+
+
+<!--  <img style="height:680px; width:828px;" src="{!$resource.HollydayIn}" />          --> 
+</div>
+
+<!--<div class="footer" style="margin-left: -2mm; margin-right: -2mm">
+<table border="1" width="100%"  bgcolor="#41AB39;">
+
+<td width="100%"  style="padding-bottom:3em;">
+</td>
+</tr>
+</table>
+
+<!--  <img style="height:680px; width:828px;" src="{!$resource.HollydayIn}" />          --
+</div>-->
+
+<div class="footer" style="margin-left: -2mm; margin-right: -2mm;margin-bottom:10mm;">
+
+<table border="0" width="100%" bgcolor="{!if(Quote.Template__c=="Ventro","#2b3770",if(Quote.Template__c=="Firntec","green","#000000"))}"  style="">
+
+<tr width="100%" >
+<td width="100%"  align="center" Style="font-size:12px;color:white;padding-top:3mm;padding-bottom:3mm;"> 
+   {!if(Quote.Template__c=="Firntec","Company No.  13460282   |   VAT No.  385 6179 53",if(Quote.Template__c=="Ventro","Company No.  8765695   |   VAT No.  170 3494 16",""))}
+   
+</td>
+</tr>
+</table>
+
+<div >
+    <div style="text-align:center;">Page  <span class="pagenumber1"/></div>
+</div> 
+<!--  <img style="height:680px; width:828px;" src="{!$resource.HollydayIn}" />          --> 
+</div>
+
+
+<div class="bodycontent">
+<table border="0" width="100%"  style="">
+<tr>
+<td width="45%"  height="50%" rowspan="2" Style="background-color:#CCCCCC;font-size:14px;color:#2a2a2c;padding-right:5mm;">
+    <br/> &nbsp; Site Address:<br/>
+          &nbsp; {!Quote.fax__Site__r.ShippingStreet}<br/>
+          &nbsp; {!Quote.fax__Site__r.ShippingCity}<br/>                       
+          &nbsp; {!Quote.fax__Site__r.ShippingState}<br/>
+          &nbsp; {!Quote.fax__Site__r.ShippingPostalCode}<br/>
+          &nbsp; {!Quote.fax__Site__r.ShippingCountry}<br/>
+   
+</td>
+<td rowspan="2" width="10%" >            
+</td>           
+</tr>
+<tr >
+<td width="45%"  align="left" Style="background-color:#CCCCCC;font-size:14px;color:#2a2a2c;padding-right:5mm;"> 
+    &nbsp; Company:{!Quote.fax__Site__r.name}<br/>
+    &nbsp; Sales Consultant:{!Quote.Sales_Consultant__c}<br/>
+    &nbsp; Date:<apex:outputText value="{0,date,dd'/'MM'/'yyyy}"><apex:param value="{!Quote.fax__Date__c}" /></apex:outputText><br/>
+    &nbsp; Valid For:{!Quote.Validity__c}<br/>
+
+</td>
+
+</tr>
+</table>
+<table style="font-size:14px;margin-top:3cm;margin-bottom:5cm;" border="0">
+<tr>
+<td style="font-weight:bold">Description:
+</td>
+</tr>
+<tr>
+<td>
+<p align="justify"> {!Quote.fax__Work_Description__c} </p>
+    
+</td>
+</tr>
+
+
+</table>
+
+<p class="instruction" style="font-size:14px;"><b>Our proposal assumes the following:</b></p>
+<ul type="circle" style="font-size:14px;">
+<li>Clear, uninterrupted access to all working areas during normal working day (08.00-18.00hrs Monday-Friday). If access isn&apos;t 
+made available upon commencement of works, a No-Access Fee of £125.00 will be charged for each no-access event.</li>
+<li>Welfare facilities provided by the client.</li>
+<li>Free on site parking provided.</li>
+</ul>
+<p class="instruction">
+Prices are subject to VAT at the current rate. Unless otherwise informed, we assume that the client is an 'End User' for VAT purposes.
+<br/><br/>
+Prices valid for 30 Days from date of estimate.
+<br/><br/>
+
+Delivery: TBC
+</p>  
+
+
+
+
+<table border="0" width="100%">
+<tr>
+<td  width="55%" style="padding-bottom:1cm;">
+</td>
+</tr>
+
+<br/>
+<tr>
+<td width="6%">
+</td>
+<p class="instruction" style="font-size:13px;text-align:left;font-size:12px;"><b>Payment terms:</b></p>
+    &nbsp;&nbsp;        
+<td style="fon-style:bold;">Applications for Payment to be made on the 14th and 30th of each Month for approval within 7 days
+Progress Payments to be paid 14 days from invoice.</td>
+</tr>
+</table>
+<br/><br/>
+<table width="100%"  class="p"  style="border-collapse:collapse;">
+<tr style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};">
+<th width="25%" class="p" style="padding:2px" ><b>Service </b></th>
+<th width="35%" class="p" style="padding:2px" ><b>Description </b></th>
+<th width="10%" class="p" style="padding:2px"> <b>Quantity/ Size</b></th>
+<th width="15%" class="p" style="padding:2px;text-align:center;" > <b>EX. VAT </b></th>
+<th width="15%" class="p" style="padding:2px;text-align:center;" > <b>INC. VAT</b></th>
+</tr>
+<apex:repeat value="{!Quote.fax__Parts__r}" var="Type" >
+ <tr style="text-align:center;page-break-inside: avoid;">
+    <td  style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px" align="left"> {!Type.fax__Product__r.name} {!Type.fax__Charge__c}</td>
+    <td  style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px" align="left"> {!Type.Description__c}</td>
+    <td  style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px" > {!Type.fax__Quantity__c}</td>
+    <td  style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px" align="right" ><apex:outputText value="£{0,number,###,###.00}"><apex:param value="{!Type.fax__Total_without_Tax__c}"/></apex:outputText>
+     </td>
+    <td  style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px" align="right"><apex:outputText value="£{0,number,###,###.00}"><apex:param value="{!Type.fax__Total_Price__c}"/></apex:outputText>
+     </td>
+</tr>
+    </apex:repeat>
+    <tr style="text-align:center;">
+    <th colspan='2' width="50%" style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px;text-align:right;">Total</th>
+
+     <td style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px"></td>
+     <td style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px" align="right"><apex:outputText value="£{0,number,###,###.00}"><apex:param value="{!Quote.fax__Items_Total__c}"/></apex:outputText></td>
+      <td style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px" align="right"><apex:outputText value="£{0,number,###,###.00}"><apex:param value="{!Quote.Grand_Total__c}"/></apex:outputText> </td>
+    </tr>
+    <br/>
+    <tr >
+        <th width="70%"/>
+    <td  colspan="2"  style="align:right;">
+      
+</td>
+</tr> 
+</table> 
+<br/>
+<div style="">
+<table width="30%" align="right" border="1px solid green;" style= "border-collapse:collapse; {!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};align:center;page-break-inside:auto;">
+        
+        <tr   style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};page-break-inside:avoid;">
+        <th   style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};background-color:solid blue;padding:7px">Total&nbsp;EX.&nbsp;VAT</th>
+            <td width="50%" style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px" align="right"><apex:outputText value="£{0,number,###,###.00}"><apex:param value="{!Quote.fax__Items_Total__c }"/></apex:outputText></td>
+        </tr>
+        <tr  style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};page-break-inside:avoid;">
+        <th  style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px"> Total&nbsp;VAT</th>
+            <td   style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px" align="right"><apex:outputText value="£{0,number,###,###.00}"><apex:param value="{!Quote.fax__Tax__c}" /></apex:outputText> </td>
+        </tr>
+        <tr  style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};page-break-inside:avoid;">
+        <th  style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px"> Total&nbsp;INC.&nbsp;VAT </th>
+            <td  style="{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};padding:2px" align="right"><apex:outputText value="£{0,number,###,###.00}"><apex:param value="{!Quote.Grand_Total__c}"/></apex:outputText></td>
+        </tr>
+        </table> 
+        </div>
+</div> 
+
+
+<br/><br/> <br/><br/>
+<!--  <table style="font-size:14px;vertical-align: bottom; ">
+<tr>
+<td style="font-weight:bold;">Notes:</td>
+</tr>
+<tr>
+<td>
+<p align="justify">{!Quote.fax__Notes__c}</p>
+</td>
+</tr>
+</table>-->
+
+<br/><br/>  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/>  
+
+<table Width="90%" style="{!IF(Quote.fax__Notes__c='','display:none;','')};page-break-inside:avoid;margin-bottom:2cm;margin-left:1cm;font-size:14px;">
+  <tr>
+      <td style="font-weight:bold;font-size:14px;">Notes:</td>
+    </tr>
+    <tr>
+      <td height="70" width="200" style = "{!if(Quote.Template__c=="Firntec",'border:solid #59E14F','border:solid #2b3770')};"><apex:outputText value="{!substitute(Quote.fax__Notes__c,"alt=","width=\"200px\" Alt=")}" escape="false"/></td>
+  </tr>
+</table> 
+
+
+</body>
+</apex:component>

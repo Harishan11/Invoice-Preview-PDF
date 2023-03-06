@@ -1,0 +1,68 @@
+<apex:page standardController="fax__Proposed_Work__c"   applyHtmlTag="false" showHeader="false" renderAs="pdf" applyBodyTag="false"  standardStylesheets="false">
+  <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+
+<style type="text/css" media="print">   
+
+
+@page {
+
+    margin-left: 0cm;
+    margin-right: 0cm;
+    margin-bottom: 2cm;
+    margin-top: 2cm;
+    
+    @top-center{ 
+    content: element(header);
+   
+   }
+    
+    @bottom-center {
+             content :element(footer);
+            } 
+             }
+             
+body{
+font-family:Arial,Helvetica,sans-serif;
+}
+
+table{
+
+}
+.bodycontent{
+    margin-left: .5cm;
+    margin-right: .5cm;
+margin-top: 1cm;
+
+}
+
+ul.a {
+  list-style-type: square;
+
+}
+p.instruction{
+font-size:13px;
+}
+
+div.footer {
+                                
+     padding-top: 0px;
+    position: running(footer);
+                      }    
+  div.header{
+                                
+     padding-top: 0px;
+     position: running(header);
+     }
+    .pagenumber1:before {  
+                content: counter(page);
+                counter-increment: page1;
+            } 
+     
+</style>
+
+</head>
+<body>
+  <c:PreviewforVentroFintec Quote="{!fax__Proposed_Work__c}" />
+</body>
+</apex:page>

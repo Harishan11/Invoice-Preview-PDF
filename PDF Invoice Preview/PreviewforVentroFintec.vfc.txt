@@ -1,0 +1,276 @@
+<apex:component access="global" layout="none">
+<apex:attribute description="Quote Template Extinguisher Spare" name="Quote" type="fax__Proposed_Work__c"   />
+<apex:attribute name="JobsheetTempId" type="Id" description="Attribute on the component." />
+
+<head>
+
+<style type="text/css" media="print">   
+
+table{
+     font-family:Arial,Helvetica,sans-serif;
+}
+
+@top-center {
+     content :element(header);
+} 
+     
+                      
+div.header {
+    font-family:Arial,Helvetica,sans-serif;
+         padding: 0px;
+         position:running(header);
+    
+}
+
+   
+        
+div.footer {
+  
+     font-family:Arial,Helvetica,sans-serif;
+     padding: 0px;
+     width:100%;
+     position: running(footer);
+}
+
+
+body {
+ min-height: 100%;
+} 
+
+.value{
+ border: 1px solid green;
+border-collapse: collapse;
+}
+
+div.footer {
+    display: block;
+    padding: 5px;
+    position: running(footer);
+    align:center;
+      }
+.pagenumber:before 
+{
+content: counter(page);
+}
+.pagecount:before 
+{
+content: counter(pages);
+}
+.pageFooter:after {
+counter-increment: page;
+content: counter(page);
+ }
+
+</style>
+</head>
+<body>
+<div class="header" style="margin-left: -2mm; margin-right: -2mm">
+<table border="0" width="100%"  bgcolor="#2b3770" >
+    <tr >
+        <td width="5%">
+        </td>
+        <td width="5%">
+             <img style="height:85px; width:250px;" src="{!$resource.VentroLogo}" />           
+        </td>
+        <td width="5%">
+             <img style="height:85px; width:240px;" src="{!$resource.finteclogo}" />           
+        </td>
+        <td width="70%"  align="right" Style="font-size:10px;color:White;padding-right:5mm;"> 
+                Aquilam House, 7 Darklake View, Estover, Plymouth, PL6 7TL
+        </td>
+        <td width="5%">
+        </td>
+    </tr>
+</table>
+
+
+
+<!--  <img style="height:680px; width:828px;" src="{!$resource.HollydayIn}" />          --> 
+ </div>
+ 
+<!--<div class="footer" style="margin-left: -2mm; margin-right: -2mm">
+<table border="1" width="100%"  bgcolor="#41AB39;">
+
+        <td width="100%"  style="padding-bottom:3em;">
+        </td>
+    </tr>
+</table>
+
+<!--  <img style="height:680px; width:828px;" src="{!$resource.HollydayIn}" />          --
+ </div>-->
+
+<div class="footer" style="margin-left: -2mm; margin-right: -2mm;margin-bottom:10mm">
+<table border="0" width="100%" bgcolor="#2b3770" style="">
+    <tr width="100%" >
+        
+        <td width="100%"  align="right" Style="font-size:12px;color:#2b3770;padding-right:5mm;"> 
+           <br/> <br/><br/>   
+        </td>
+    </tr>
+</table>
+
+<div >
+            <div class="pageFooter" style="text-align:center;">Page <span class="pagenumber1"/></div>
+      </div> 
+<!--  <img style="height:680px; width:828px;" src="{!$resource.HollydayIn}" />          --> 
+ </div>
+ 
+ <br/><br/><br/>
+ <div class="bodycontent">
+ <table border="0" width="100%"  style="">
+    <tr>
+        <td rowspan="2" width="45%" style="background-color:#CCCCCC;padding-bottom:3cm;">
+                        
+        </td>
+        <td rowspan="2" width="10%" style="">
+                        
+        </td>
+        <td style="fon-style:bold;">
+            CUSTOMER ESTIMATE NO.{!Quote.name}&nbsp;&nbsp;
+        </td>
+    </tr>
+    <tr >
+        
+        
+        
+        <td width="45%"  align="left" Style="background-color:#CCCCCC;font-size:14px;color:#2a2a2c;padding-right:5mm;"> 
+            &nbsp; Company:<br/>
+            &nbsp; Sales Consultant:<br/>
+            &nbsp; Date:{!Quote.fax__Date__c}<br/>
+            &nbsp; Valid For:{!Quote.Validity__c}<br/>
+
+        </td>
+
+    </tr>
+</table>
+<table style="font-size:14px;margin-top:3cm;margin-bottom:5cm;" border="0">
+    <tr>
+        <td>Description
+        </td>
+    </tr>
+    <tr>
+        <td style="color:red;">
+            This is different for different services, we would need a dropdown menu. Contact for more details
+        </td>
+    </tr>
+
+
+</table>
+
+<p class="instruction" style="font-size:14px;"><b>Our proposal assumes the following:</b></p>
+    <ul type="circle" style="font-size:14px;">
+      <li>Clear, uninterrupted access to all working areas during normal working day (08.00-18.00hrs Monday-Friday). If access isn&apos;t 
+      made available upon commencement of works, a No-Access Fee of £125.00 will be charged for each no-access event.</li>
+      <li>Welfare facilities provided by the client.</li>
+      <li>Free on site parking provided.</li>
+     </ul>
+<p class="instruction">
+    Prices are subject to VAT at the current rate. Unless otherwise informed, we assume that the client is an 'End User' for VAT purposes.
+<br/><br/>
+    Prices valid for 30 Days from date of estimate.
+<br/><br/>
+
+    Delivery: TBC
+</p>  
+     <br/><br/><br/>
+     <br/><br/><br/>
+     
+     
+  <table border="0" width="100%"  style="">
+    <tr>
+        <td  width="55%" style="padding-bottom:3cm;">
+                        
+        </td>
+      <!--  <td width="10%" style="">
+                        
+        </td>-->
+        <td style="fon-style:bold;">
+            CUSTOMER ESTIMATE NO.{!Quote.name}
+        </td>
+    </tr>
+    
+    <br/>
+    <tr>
+	<td width="6%">
+	</td>
+	<p class="instruction" style="font-size:13px;text-align:left;font-size:13px;"><b>Payment terms:</b></p>
+   	 &nbsp;&nbsp;        
+	<td style="fon-style:bold;font-size:14px;">Applications for Payment to be made on the 14th and 30th of each Month for approval within 7 days
+	Progress Payments to be paid 14 days from invoice.</td>
+	</tr>
+   
+     </table>
+     <br/><br/>
+     <table width="100%"  border="1px solid green;" style= "border-collapse:collapse; border:solid #2b3770;">
+     <tr style="border:1px solid #2b3770;">
+     <th width="50%" style="border:1px solid #2b3770;padding:8px"><b>Service </b></th>
+     <th width="15%" style="border:1px solid #2b3770;padding:8px"> <b>Quantity/Size</b></th>
+     <th width="15%" style="border:1px solid #2b3770;padding:8px;text-align:center;"> <b>EX. VAT </b></th>
+     <th width="15%" style="border:1px solid #2b3770;padding:8px;text-align:center;"> <b>INC. VAT</b></th>
+     </tr>
+     <apex:repeat value="{!Quote.fax__Parts__r}" var="Type">
+         <tr style="text-align:center;">
+            <td  style="border:1px solid #2b3770;padding:8px" align="left" > {!Type.fax__Product__r.name} {!Type.fax__Charge__c}</td>
+            <td  style="border:1px solid #2b3770;padding:8px" > {!Type.fax__Quantity__c}</td>
+            <td  style="border:1px solid #2b3770;padding:8px" align="right" ><apex:outputText value="{0, number, 000,000.00}">
+   <apex:param value="{!Type.fax__Total_without_Tax__c}" /> </apex:outputText> </td>
+            <td  style="border:1px solid #2b3770;padding:8px" align="right"><apex:outputText value="£"></apex:outputText> {!Type.fax__Total_Price__c}</td>
+        </tr>
+            </apex:repeat>
+            <tr style="text-align:center;">
+            <th style="border:1px solid #2b3770;padding:8px;text-align:right;"><apex:outputText value="£"></apex:outputText>Total</th>
+            <td style="border:1px solid #2b3770;padding:8px"></td>
+             <td style="border:1px solid #2b3770;padding:8px" align="right"><apex:outputText value="£"></apex:outputText>{!Quote.fax__Items_Total__c}</td>
+              <td style="border:1px solid #2b3770;padding:8px" align="right"><apex:outputText value="£"></apex:outputText>{!Quote.Grand_Total__c}</td>
+            </tr>
+            <br/>
+            <tr>
+            <td width="60%" >  </td>
+            <td  width="10%" style="align:right;">
+             <table width="60%" border="1px solid green;" style= "border-collapse:collapse; border:solid #2b3770;align:center;">
+     
+     <tr style="border:1px solid #2b3770">
+     <th  style="border:1px solid #2b3770;background-color:solid blue;padding:7px"> Total&nbsp;EX.&nbsp;VAT</th>
+     <td  width="30%" style="border:1px solid #2b3770;padding:8px" align="right"><apex:outputText value="£"></apex:outputText>{!Quote.fax__Items_Total__c } </td>
+     </tr>
+      <tr style="border:1px solid #2b3770;">
+     <th style="border:1px solid #2b3770;padding:8px"> Total&nbsp;VAT</th>
+     <td  width="30%" style="border:1px solid #2b3770;padding:8px" align="right"><apex:outputText value="£"></apex:outputText>{!Quote.fax__Tax__c} </td>
+     </tr>
+      <tr style="border:1px solid #2b3770;">
+     <th style="border:1px solid #2b3770;padding:8px"> Total&nbsp;INC.&nbsp;VAT </th>
+     <td  width="30%" style="border:1px solid #2b3770;padding:8px" align="right"><apex:outputText value="£"></apex:outputText>{!Quote.Grand_Total__c} </td>
+     </tr>
+     </table> 
+     </td>
+     </tr> 
+     </table>   
+     
+    <!--  <br/><br/>
+     <table width="10%"  border="1px solid green;" style= "border-collapse:collapse; border:solid #59E14F;align:right;">
+     <tr style="border:1px solid #59E14F;">
+     <th style="border:1px solid #59E14F;"><b>Service </b></th>
+     <td style="border:1px solid #59E14F;"> test</td>
+     </tr>
+     <tr style="border:1px solid #59E14F;">
+     <th style="border:1px solid #59E14F;"> vat total</th>
+     <td style="border:1px solid #59E14F;"> test</td>
+     </tr>
+     </table> -->      
+</div> 
+
+
+<br/><br/>  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/>  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+<table Width="90%" style="{!IF(Quote.fax__Notes__c='','display:none;','')};page-break-inside:avoid;margin-left:1cm;">
+          <tr>
+              <td style="font-weight:bold;">Notes:</td>
+            </tr>
+            <tr>
+              <td height="50" width="200" style = "border: 3px solid #2b3770;"><apex:outputText value="{!substitute(Quote.fax__Notes__c,"alt=","width=\"200px\" Alt=")}" escape="false"/></td>
+          </tr>
+ </table> 
+
+</body>
+</apex:component>
